@@ -1,6 +1,6 @@
 {
   "deploy": {
-    "project": "b504b3cd-4d57-435d-98cd-a08014c4f53d",
+    "project": "cdef3815-e239-4fc3-8b2d-d81c274f0b7b",
     "exclude": [
       "**/node_modules"
     ],
