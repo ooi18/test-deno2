@@ -3,7 +3,7 @@ import { oakCors } from "https://deno.land/x/cors/mod.ts";
 // import { IP2Location, IPTools } from "https://deno.land/x/ip2location@8.2.0/mod.ts";
 import { IP2Location, IPTools } from "./mod.ts";
 // import { IP2Location, IPTools } from "npm:ip2location-nodejs@9.6.1";
-import { readSync, openSync, closeSync, existsSync } from "node:fs";
+import { readSync, openSync, closeSync, existsSync, statSync } from "node:fs";
 import { Buffer } from 'node:buffer';
 
 const app = new Application();
@@ -31,7 +31,11 @@ function read32Row(position, buffer) {
 
 router.get('/', ctx => {
 	
-	
+	var stats = statSync("./IP2LOCATION-LITE-DB3.BIN")
+	var fileSizeInBytes = stats.size;
+	// Convert the file size to megabytes (optional)
+	var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
+	console.log("fileSizeInMegabytes: " + fileSizeInMegabytes);
 
     const ip = ctx.request.ip;
     // const ip = '60.50.38.241';
