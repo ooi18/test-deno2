@@ -853,7 +853,7 @@ export class IP2Location {
         }
       }
     }
-    loadMesg(data, MSG_INVALID_IP1);
+    loadMesg(data, MSG_INVALID_IP);
   }
 
   // Query IP for geolocation info
@@ -897,7 +897,7 @@ export class IP2Location {
     let ipType = net.isIP(myIP);
 
     if (ipType == 0) {
-      loadMesg(data, MSG_INVALID_IP);
+      loadMesg(data, MSG_INVALID_IP1);
       return data;
     } else if (
       !this.#binFile ||
