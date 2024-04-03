@@ -604,6 +604,9 @@ export class IP2Location {
       if (this.#myDB.indexed == 1) {
         // console.log("indexArrayIPV4: " + this.#indexArrayIPV4);
         // console.log("indexArrayIPV4: " + this.#indexArrayIPV4);
+        const lastKey = this.#indexArrayIPV4.length - 1;
+        console.log("lastKey: " + lastKey);
+        console.log(this.#indexArrayIPV4[lastKey]);
         indexAddress = ipNumber >>> 16;
         console.log("indexAddress: " + indexAddress);
         low = this.#indexArrayIPV4[indexAddress][0];
@@ -611,7 +614,7 @@ export class IP2Location {
         console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress]);
         // console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress-1]);
         // console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress+1]);
-		console.log(findKeyByValue(469095, this.#indexArrayIPV4));
+		// console.log(findKeyByValue(469095, this.#indexArrayIPV4));
         //console.log("low: " + low);
         //console.log("high: " + high);
       }
