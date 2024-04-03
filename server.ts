@@ -16,6 +16,7 @@ const router = new Router();
 function readRow(fd, readBytes, position) {
   let buffer = new Buffer.alloc(readBytes);
   let totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
+	console.log("totalRead: " + totalRead);
   return buffer;
 }
 
