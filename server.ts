@@ -20,7 +20,12 @@ function readRow(fd, readBytes, position) {
 }
 
 function read32Row(position, buffer) {
-	return buffer.readUInt32LE(position);
+	// let var1 = buffer.readUInt32BE(position);
+	let var1 = buffer.readUInt32LE(position);
+	console.log("buffer: " + buffer);
+	console.log("var1: " + var1);
+	return var1;
+	// return buffer.readUInt32LE(position);
 }
 
 router.get('/', ctx => {
