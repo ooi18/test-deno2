@@ -636,6 +636,8 @@ export class IP2Location {
         }
       }
     }
+    console.log("low: " + low);
+    console.log("high: " + high);
     data.ip = myIP;
     ipNumber = BigInt(ipNumber);
 
