@@ -3,6 +3,14 @@ import * as net from "node:net";
 import { readSync, openSync, closeSync, existsSync } from "node:fs";
 import { Buffer } from 'node:buffer';
 
+if (typeof Deno !== "undefined") {
+  // Deno-specific logic
+  console.log("Running in Deno environment.");
+} else {
+  // Node.js-specific logic
+  console.log("Running in Node.js environment.");
+}
+
 // For BIN queries
 const VERSION = "8.2.1";
 const MAX_INDEX = 65536;
@@ -312,7 +320,11 @@ export class IP2Location {
 
   // Read 32 bits integer in the buffer
   read32Row(position, buffer) {
-    return buffer.readUInt32LE(position);
+	  // console.log(buffer);
+	  let var1 = buffer.readUInt32LE(position);
+	  console.log("var1: " + var1);
+    // return buffer.readUInt32LE(position);
+    return var1;
   }
 
   // Read 128 bits integer in the buffer
