@@ -16,6 +16,7 @@ const router = new Router();
 function readRow(fd, readBytes, position) {
   let buffer = new Buffer.alloc(readBytes);
   let totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
+	console.log("readBytes: " + readBytes);
 	console.log("totalRead: " + totalRead);
   return buffer;
 }
@@ -35,7 +36,7 @@ router.get('/', ctx => {
 	var fileSizeInBytes = stats.size;
 	// Convert the file size to megabytes (optional)
 	var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
-	console.log("fileSizeInMegabytes: " + fileSizeInMegabytes);
+	// console.log("fileSizeInMegabytes: " + fileSizeInMegabytes);
 
     const ip = ctx.request.ip;
     // const ip = '60.50.38.241';
