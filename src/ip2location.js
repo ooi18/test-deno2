@@ -601,6 +601,7 @@ export class IP2Location {
       console.log("myDB.indexed: " + this.#myDB.indexed);
 
       if (this.#myDB.indexed == 1) {
+        console.log("indexArrayIPV4: " + this.#indexArrayIPV4);
         indexAddress = ipNumber >>> 16;
         low = this.#indexArrayIPV4[indexAddress][0];
         high = this.#indexArrayIPV4[indexAddress][1];
