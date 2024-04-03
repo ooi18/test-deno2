@@ -513,6 +513,7 @@ export class IP2Location {
           let pointer = 0;
 
           for (let x = 0; x < MAX_INDEX; x++) {
+			  console.log("pointer: " + pointer);
             this.#indexArrayIPV4[x] = Array(2);
             this.#indexArrayIPV4[x][0] = this.read32Row(pointer, row);
             this.#indexArrayIPV4[x][1] = this.read32Row(pointer + 4, row);
