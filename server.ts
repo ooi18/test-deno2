@@ -20,7 +20,7 @@ router.get('/', ctx => {
         ip: ip,
         mesg: mesg,
         database_version: ip2location.getDatabaseVersion(),
-        is_ipv4: iptools.isIPV4(ip)
+        is_ipv4: iptools.isIPV4(ip),
         results: geo,
         country: geo.country_long,
         city: geo.city,
