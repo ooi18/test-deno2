@@ -365,6 +365,7 @@ export class IP2Location {
     let len = this.read8Row(0, row);
     return row.toString("utf8", 1, len + 1);
   }
+  
 
   // Read metadata and indexes
   loadBin() {
@@ -587,9 +588,9 @@ export class IP2Location {
     let firstCol = 4; // IP From is 4 bytes
     let row;
     let fullRow;
-    console.log("myIP: " + myIP);
-    console.log("ipType: " + ipType);
-    console.log("mode: " + mode);
+    // console.log("myIP: " + myIP);
+    // console.log("ipType: " + ipType);
+    // console.log("mode: " + mode);
     // console.log("low: " + low);
 
     if (ipType == 4) {
@@ -602,14 +603,15 @@ export class IP2Location {
 
       if (this.#myDB.indexed == 1) {
         // console.log("indexArrayIPV4: " + this.#indexArrayIPV4);
-        console.log("indexArrayIPV4: " + this.#indexArrayIPV4);
+        // console.log("indexArrayIPV4: " + this.#indexArrayIPV4);
         indexAddress = ipNumber >>> 16;
         console.log("indexAddress: " + indexAddress);
         low = this.#indexArrayIPV4[indexAddress][0];
         high = this.#indexArrayIPV4[indexAddress][1];
         console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress]);
-        console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress-1]);
-        console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress+1]);
+        // console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress-1]);
+        // console.log("indexArrayIPV4 values: " + this.#indexArrayIPV4[indexAddress+1]);
+		console.log(findKeyByValue(469095, this.#indexArrayIPV4));
         //console.log("low: " + low);
         //console.log("high: " + high);
       }
@@ -1176,6 +1178,26 @@ function loadMesg(data, mesg) {
       data[key] = mesg;
     }
   }
+}
+
+function findKeyByValue(value, obj, parentKey = null) {
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            if (obj[key] === value) {
+                if (parentKey !== null) {
+                    return parentKey + '.' + key;
+                } else {
+                    return key;
+                }
+            } else if (typeof obj[key] === 'object') {
+                var result = findKeyByValue(value, obj[key], key);
+                if (result !== null) {
+                    return result;
+                }
+            }
+        }
+    }
+    return null;
 }
 
 // API query class
