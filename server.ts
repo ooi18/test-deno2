@@ -15,6 +15,7 @@ router.get('/', ctx => {
     const geo = ip2location.getAll(ip);
 
     ctx.response.body = {
+		'Calling from local ipl deno',
         ip,
         database_version: ip2location.getDatabaseVersion(),
         results: geo,
