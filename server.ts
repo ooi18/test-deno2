@@ -39,7 +39,7 @@ router.get('/', ctx => {
 	// len = 65536;
 	// len *= 8; // 4 bytes for both From/To
 	row = readRow(fd, 524288, indexBaseAddress);
-	console.log(read32Row(524284, row));
+	console.log("read32Row result for position 524284 is " + read32Row(524284, row));
 
     ctx.response.body = {
         ip: ip,
