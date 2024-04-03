@@ -508,8 +508,10 @@ export class IP2Location {
           }
           len *= 8; // 4 bytes for both From/To
 
-          console.log("indexBaseAddress: " + this.#myDB.indexBaseAddress);
+          // console.log("indexBaseAddress: " + this.#myDB.indexBaseAddress);
           row = this.readRow(len, this.#myDB.indexBaseAddress);
+		  // console.log("row: " + row);
+		  console.log("len: " + len);
 
           let pointer = 0;
 
