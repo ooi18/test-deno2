@@ -587,6 +587,10 @@ export class IP2Location {
     let firstCol = 4; // IP From is 4 bytes
     let row;
     let fullRow;
+    console.log("myIP: " + myIP);
+    console.log("ipType: " + ipType);
+    console.log("mode: " + mode);
+    // console.log("low: " + low);
 
     if (ipType == 4) {
       MAX_IP_RANGE = MAX_IPV4_RANGE;
