@@ -321,7 +321,8 @@ export class IP2Location {
   // Read 32 bits integer in the buffer
   read32Row(position, buffer) {
 	  // console.log(buffer);
-	  let var1 = buffer.readUInt32LE(position);
+	  // let var1 = buffer.readUInt32LE(position);
+	  let var1 = buffer.readUInt32BE(position);
 	  // console.log("var1: " + var1);
 	  // console.log("position: " + position);
     // return buffer.readUInt32LE(position);
