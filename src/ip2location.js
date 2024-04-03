@@ -606,6 +606,8 @@ export class IP2Location {
         console.log("indexAddress: " + indexAddress);
         low = this.#indexArrayIPV4[indexAddress][0];
         high = this.#indexArrayIPV4[indexAddress][1];
+        console.log("low: " + low);
+        console.log("high: " + high);
       }
       console.log("low: " + low);
       console.log("high: " + high);
