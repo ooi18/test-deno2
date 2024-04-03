@@ -1,7 +1,8 @@
 import { Application, route, Router } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 // import { IP2Location, IPTools } from "https://deno.land/x/ip2location@8.2.0/mod.ts";
-import { IP2Location, IPTools } from "./mod.ts";
+// import { IP2Location, IPTools } from "./mod.ts";
+import { IP2Location } from "npm:ip2location-nodejs@9.6.1";
 
 const app = new Application();
 const router = new Router();
@@ -13,6 +14,7 @@ ip2location.open("./IP2LOCATION-LITE-DB3.BIN");
 router.get('/', ctx => {
 
     const ip = ctx.request.ip;
+    // const ip = '60.50.38.241';
     const geo = ip2location.getAll(ip);
     const mesg = 'Calling from local ipl deno';
 
