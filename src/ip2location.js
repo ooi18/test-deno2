@@ -853,7 +853,8 @@ export class IP2Location {
         }
       }
     }
-    // loadMesg(data, MSG_INVALID_IP);
+    console.log("testing...");
+    loadMesg(data, MSG_INVALID_IP);
   }
 
   // Query IP for geolocation info
