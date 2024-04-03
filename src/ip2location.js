@@ -598,12 +598,15 @@ export class IP2Location {
       baseAddress = this.#myDB.baseAddress;
       columnSize = this.#ipV4ColumnSize;
       ipNumber = dot2Num(myIP);
+      console.log("myDB.indexed: " + this.#myDB.indexed);
 
       if (this.#myDB.indexed == 1) {
         indexAddress = ipNumber >>> 16;
         low = this.#indexArrayIPV4[indexAddress][0];
         high = this.#indexArrayIPV4[indexAddress][1];
       }
+      console.log("low: " + low);
+      console.log("high: " + high);
     } else if (ipType == 6) {
       MAX_IP_RANGE = MAX_IPV6_RANGE;
       high = this.#myDB.dbCountIPV6;
