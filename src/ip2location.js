@@ -664,6 +664,9 @@ export class IP2Location {
         let rowLen = columnSize - firstCol;
         row = fullRow.subarray(firstCol, firstCol + rowLen); // extract the actual row data
 
+        console.log("countryEnabled: " + this.#countryEnabled);
+        // console.log("testing...");
+
         if (this.#countryEnabled) {
           if (
             mode == MODES.ALL ||
@@ -853,7 +856,7 @@ export class IP2Location {
         }
       }
     }
-    console.log("testing...");
+    // console.log("testing...");
     loadMesg(data, MSG_INVALID_IP);
   }
 
