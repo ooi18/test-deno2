@@ -508,12 +508,13 @@ export class IP2Location {
           }
           len *= 8; // 4 bytes for both From/To
 
+          console.log("indexBaseAddress: " + this.#myDB.indexBaseAddress);
           row = this.readRow(len, this.#myDB.indexBaseAddress);
 
           let pointer = 0;
 
           for (let x = 0; x < MAX_INDEX; x++) {
-			  console.log("pointer: " + pointer);
+			  // console.log("pointer: " + pointer);
             this.#indexArrayIPV4[x] = Array(2);
             this.#indexArrayIPV4[x][0] = this.read32Row(pointer, row);
             this.#indexArrayIPV4[x][1] = this.read32Row(pointer + 4, row);
