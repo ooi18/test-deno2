@@ -646,6 +646,8 @@ export class IP2Location {
     data.ipNo = ipNumber.toString();
 
     while (low <= high) {
+      console.log("low: " + low);
+      console.log("high: " + high);
       mid = Math.trunc((low + high) / 2);
       rowOffset = baseAddress + mid * columnSize;
       rowOffset2 = rowOffset + columnSize;
