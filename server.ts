@@ -6,6 +6,7 @@ import { IP2Location, IPTools } from "./mod.ts";
 const app = new Application();
 const router = new Router();
 const ip2location = new IP2Location();
+const iptools = new IPTools();
 
 ip2location.open("./IP2LOCATION-LITE-DB3.BIN");
 
@@ -16,9 +17,10 @@ router.get('/', ctx => {
     const mesg = 'Calling from local ipl deno';
 
     ctx.response.body = {
-        ip,
+        ip: ip,
         mesg: mesg,
         database_version: ip2location.getDatabaseVersion(),
+        is_ipv4: iptools.isIPV4(ip)
         results: geo,
         country: geo.country_long,
         city: geo.city,
