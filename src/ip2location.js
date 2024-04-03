@@ -657,6 +657,10 @@ export class IP2Location {
 
       ipFrom = BigInt(ipFrom);
       ipTo = BigInt(ipTo);
+      
+      console.log("ipFrom: " + ipFrom);
+      console.log("ipTo: " + ipTo);
+      console.log("ipNumber: " + ipNumber);
 
       if (ipFrom <= ipNumber && ipTo > ipNumber) {
         loadMesg(data, MSG_NOT_SUPPORTED); // load default message
@@ -856,7 +860,7 @@ export class IP2Location {
         }
       }
     }
-    // console.log("testing...");
+    console.log("testing...");
     loadMesg(data, MSG_INVALID_IP);
   }
 
