@@ -43,6 +43,7 @@ router.get('/', ctx => {
 	let dbCount = read32Row(5, row);
 	console.log("dbCount: " + dbCount);
 	let indexBaseAddress = read32Row(21, row);
+	console.log("indexBaseAddress: " + indexBaseAddress);
 	// len = 65536;
 	// len *= 8; // 4 bytes for both From/To
 	row = readRow(fd, 524288, indexBaseAddress);
