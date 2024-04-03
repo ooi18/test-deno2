@@ -15,6 +15,7 @@ router.get('/', ctx => {
 
     ctx.response.body = {
         ip,
+        database_version: ip2location.getDatabaseVersion(),
         country: geo.country_long,
         city: geo.city,
         region: geo.region
