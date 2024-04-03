@@ -322,7 +322,7 @@ export class IP2Location {
   read32Row(position, buffer) {
 	  // console.log(buffer);
 	  let var1 = buffer.readUInt32LE(position);
-	  // console.log("var1: " + var1);
+	  console.log("var1: " + var1);
 	  console.log("position: " + position);
     // return buffer.readUInt32LE(position);
     return var1;
