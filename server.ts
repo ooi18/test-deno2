@@ -13,9 +13,10 @@ router.get('/', ctx => {
 
     const ip = ctx.request.ip;
     const geo = ip2location.getAll(ip);
+    const mesg = 'Calling from local ipl deno';
 
     ctx.response.body = {
-		'Calling from local ipl deno',
+        mesg,
         ip,
         database_version: ip2location.getDatabaseVersion(),
         results: geo,
