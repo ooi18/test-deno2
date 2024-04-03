@@ -22,7 +22,7 @@ function readRow(fd, readBytes, position) {
 function read32Row(position, buffer) {
 	// let var1 = buffer.readUInt32BE(position);
 	let var1 = buffer.readUInt32LE(position);
-	console.log("buffer: " + buffer);
+	// console.log("buffer: " + buffer);
 	console.log("var1: " + var1);
 	return var1;
 	// return buffer.readUInt32LE(position);
@@ -40,6 +40,8 @@ router.get('/', ctx => {
 	let fd = openSync("./IP2LOCATION-LITE-DB3.BIN", "r");
 	let len = 64; // 64-byte header
 	let row = readRow(fd, len, 1);
+	let dbCount = read32Row(5, row);
+	console.log("dbCount: " + dbCount);
 	let indexBaseAddress = read32Row(21, row);
 	// len = 65536;
 	// len *= 8; // 4 bytes for both From/To
