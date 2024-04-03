@@ -2,7 +2,7 @@ import { Application, route, Router } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 // import { IP2Location, IPTools } from "https://deno.land/x/ip2location@8.2.0/mod.ts";
 // import { IP2Location, IPTools } from "./mod.ts";
-import { IP2Location } from "npm:ip2location-nodejs@9.6.1";
+import { IP2Location, IPTools } from "npm:ip2location-nodejs@9.6.1";
 
 const app = new Application();
 const router = new Router();
