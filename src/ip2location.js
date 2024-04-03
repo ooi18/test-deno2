@@ -322,7 +322,7 @@ export class IP2Location {
   read32Row(position, buffer) {
 	  // console.log(buffer);
 	  let var1 = buffer.readUInt32LE(position);
-	  console.log("var1: " + var1);
+	  // console.log("var1: " + var1);
 	  // console.log("position: " + position);
     // return buffer.readUInt32LE(position);
     return var1;
@@ -532,6 +532,7 @@ export class IP2Location {
 			  // console.log("pointer: " + pointer);
             this.#indexArrayIPV4[x] = Array(2);
             this.#indexArrayIPV4[x][0] = this.read32Row(pointer, row);
+			console.log("indexArrayIPV4: " + this.#indexArrayIPV4[x][0]);
             this.#indexArrayIPV4[x][1] = this.read32Row(pointer + 4, row);
             pointer += 8;
           }
