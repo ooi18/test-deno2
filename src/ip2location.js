@@ -259,7 +259,18 @@ export class IP2Location {
   // Read row data
   readRow(readBytes, position) {
     let buffer = new Buffer.alloc(readBytes);
+    console.log("length " + buffer.length);
     let totalRead = readSync(this.#fd, buffer, 0, readBytes, position - 1);
+    // let totalRead = 0;
+    console.log("readBytes: " + readBytes);
+    console.log("totalRead: " + totalRead);
+    if (totalRead != readBytes) {
+    while (totalRead != readBytes) {
+      totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
+      console.log("readBytes: " + readBytes);
+      console.log("totalRead: " + totalRead);
+    }
+    }
     return buffer;
   }
 
@@ -321,8 +332,8 @@ export class IP2Location {
   // Read 32 bits integer in the buffer
   read32Row(position, buffer) {
 	  // console.log(buffer);
-	  // let var1 = buffer.readUInt32LE(position);
-	  let var1 = buffer.readUInt32BE(position);
+	  let var1 = buffer.readUInt32LE(position);
+	  // let var1 = buffer.readUInt32BE(position);
 	  // console.log("var1: " + var1);
 	  // console.log("position: " + position);
     // return buffer.readUInt32LE(position);
@@ -533,7 +544,7 @@ export class IP2Location {
 			  // console.log("pointer: " + pointer);
             this.#indexArrayIPV4[x] = Array(2);
             this.#indexArrayIPV4[x][0] = this.read32Row(pointer, row);
-			console.log("indexArrayIPV4: " + this.#indexArrayIPV4[x][0]);
+			// console.log("indexArrayIPV4: " + this.#indexArrayIPV4[x][0]);
             this.#indexArrayIPV4[x][1] = this.read32Row(pointer + 4, row);
             pointer += 8;
           }
@@ -955,9 +966,11 @@ export class IP2Location {
       this.#binFile == "" ||
       !existsSync(this.#binFile)
     ) {
+      // console.log("1");
       loadMesg(data, MSG_MISSING_FILE);
       return data;
     } else if (this.#myDB.dbType == 0) {
+      // console.log("2");
       loadMesg(data, MSG_MISSING_FILE);
       return data;
     } else if (ipType == 6 && this.#myDB.dbCountIPV6 == 0) {
