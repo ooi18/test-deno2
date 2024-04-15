@@ -266,7 +266,7 @@ export class IP2Location {
     console.log("totalRead: " + totalRead);
     if (totalRead != readBytes) {
     while (totalRead != readBytes) {
-      totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
+      totalRead = readSync(this.#fd, buffer, 0, readBytes, position - 1);
       console.log("readBytes: " + readBytes);
       console.log("totalRead: " + totalRead);
     }
