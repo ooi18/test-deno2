@@ -26,15 +26,15 @@ function readRow2(readBytes: number, position:number)
 function readRow(fd, readBytes, position) {
   let buffer = new Buffer.alloc(readBytes);
   console.log("length " + buffer.length);
-  // let totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
+  let totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
   // console.log("readBytes: " + readBytes);
   // console.log("totalRead: " + totalRead);
-  let totalRead = 0;
-  while (totalRead != readBytes) {
-    totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
-    console.log("readBytes: " + readBytes);
-    console.log("totalRead: " + totalRead);
-  }
+  // let totalRead = 0;
+  // while (totalRead != readBytes) {
+    // totalRead = readSync(fd, buffer, 0, readBytes, position - 1);
+    // console.log("readBytes: " + readBytes);
+    // console.log("totalRead: " + totalRead);
+  // }
   return buffer;
 }
 
