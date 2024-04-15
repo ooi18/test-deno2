@@ -260,8 +260,8 @@ export class IP2Location {
   readRow(readBytes, position) {
     let buffer = new Buffer.alloc(readBytes);
     console.log("length " + buffer.length);
-    let totalRead = readSync(this.#fd, buffer, 0, readBytes, position - 1);
-    // let totalRead = 0;
+    // let totalRead = readSync(this.#fd, buffer, 0, readBytes, position - 1);
+    let totalRead = 0;
     // console.log("readBytes: " + readBytes);
     // console.log("totalRead: " + totalRead);
     // if (totalRead != readBytes) {
