@@ -1,8 +1,8 @@
 import * as https from "node:https";
 import * as net from "node:net";
 import { readSync, openSync, closeSync, existsSync } from "node:fs";
-import { Buffer } from 'node:buffer';
-import * as hex from "https://deno.land/std@0.207.0/encoding/hex.ts";
+// import { Buffer } from 'node:buffer';
+import { Buffer } from "jsr:@std/io/buffer";
 
 // For BIN queries
 const VERSION = "8.2.1";
@@ -328,11 +328,11 @@ export class IP2Location {
     
     // Convert the list of integers to a Uint8Array (little-endian bytes)
     let byteArray = new Uint8Array(integerList);
-    let buffer1 = new Deno.Buffer(byteArray);// Read the unsigned 32-bit integer from the buffer
+    let buffer1 = new Buffer(byteArray);// Read the unsigned 32-bit integer from the buffer
     let valueBuffer = new Uint8Array(4); // Create a buffer to hold the 32-bit value
     if (position > 0) {
         let slicedData = buffer1.bytes({ copy: true }).slice(position);
-        let buffer2 = new Deno.Buffer(slicedData);
+        let buffer2 = new Buffer(slicedData);
         buffer2.readSync(valueBuffer);
     } else {
         buffer1.readSync(valueBuffer);
@@ -396,11 +396,11 @@ export class IP2Location {
     
     // Convert the list of integers to a Uint8Array (little-endian bytes)
     let byteArray = new Uint8Array(integerList);
-    let buffer1 = new Deno.Buffer(byteArray);// Read the unsigned 32-bit integer from the buffer
+    let buffer1 = new Buffer(byteArray);// Read the unsigned 32-bit integer from the buffer
     let valueBuffer = new Uint8Array(4); // Create a buffer to hold the 32-bit value
     if (position > 0) {
         let slicedData = buffer1.bytes({ copy: true }).slice(position);
-        let buffer2 = new Deno.Buffer(slicedData);
+        let buffer2 = new Buffer(slicedData);
         buffer2.readSync(valueBuffer);
     } else {
         buffer1.readSync(valueBuffer);
